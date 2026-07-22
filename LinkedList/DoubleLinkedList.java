@@ -30,6 +30,37 @@ public class DoubleLinkedList{
         return head;
 
     }
+    private static Node deleteKthNode(Node head, int k){
+        if(head==null) return null;
+
+        Node temp=head;
+        int count=0;
+        while(temp!=null){
+            count++;
+            if(count==k){
+                break;
+            }
+            temp=temp.next;
+        }
+        Node back=temp.prev;
+        Node front=temp.next;
+        if(back==null && front==null){
+            return null;
+        }else if(back==null){
+            deleteHead(temp);
+        }else if(front==null){
+            deleteTail(temp);
+        }else{
+            back.next=front;
+            front.prev=back;
+
+            temp.next=null;
+            temp.prev=null;
+        }
+        return head;
+
+
+    }
     private static Node deleteTail(Node head){
         if(head==null || head.next==null){
             return null;
@@ -60,6 +91,7 @@ public class DoubleLinkedList{
         Node head=convertArr2DL(arr);
         head=deleteHead(head);
         head=deleteTail(head);
+        head=deleteKthNode(head,3);
         print(head);
         
     }
