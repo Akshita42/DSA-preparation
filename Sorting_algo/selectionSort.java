@@ -1,6 +1,7 @@
 package Sorting_algo;
 import java.util.Scanner;
-public class selectionSort{
+
+public class SelectionSort{
     // public static void main(String args[]){
     //     Scanner sc=new Scanner(System.in);
     //     int n=sc.nextInt();
@@ -61,3 +62,4 @@ public class selectionSort{
 
     }
 }
+
